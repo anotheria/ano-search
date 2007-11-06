@@ -2,12 +2,12 @@ package net.anotheria.search.filteredsearch;
 
 import java.util.List;
 
-public interface FilteringEngine {
-	public List<Filterable> filter(FilterCustomization customization);
+public interface FilteringEngine<T extends Filterable> {
+	public List<T> filter(FilterCustomization customization);
 	
-	public List<Filterable> filter(List<Filterable> data, FilterCustomization customization);
+	public List<T> filter(List<T> data, FilterCustomization customization);
 
-	public List<Filterable> filter(List<Filterable> data, List<Filter> filters, FilterCustomization customization);
+	public List<T> filter(List<T> data, List<Filter> filters, FilterCustomization customization);
 
 	public void addFilter(Filter aFilter);
 	
@@ -15,12 +15,12 @@ public interface FilteringEngine {
 	
 	public void addFilters(List<Filter> someFilters);
 	
-	public void addFilterable(Filterable f);
+	public void addFilterable(T f);
 	
-	public void addFilterables(List<Filterable> someFilterables);
+	public void addFilterables(List<T> someFilterables);
 
-	public void removeFilterable(Filterable f);
+	public void removeFilterable(T f);
 	
-	public void removeFilterables(List<Filterable> someFilterables);
+	public void removeFilterables(List<T> someFilterables);
 	
 }
