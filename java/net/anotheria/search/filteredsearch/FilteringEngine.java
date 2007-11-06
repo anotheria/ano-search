@@ -7,13 +7,23 @@ public interface FilteringEngine<T extends Filterable> {
 	
 	public List<T> filter(List<T> data, FilterCustomization customization);
 
-	public List<T> filter(List<T> data, List<Filter> filters, FilterCustomization customization);
+	public List<T> filter(FilterCustomization customization, List<Filter<T>> filters);
 
-	public void addFilter(Filter aFilter);
+	public List<T> filter(List<T> data, List<Filter<T>> filters, FilterCustomization customization);
+
+	public List<T> filter(FilterCustomization customization, int maxHits);
 	
-	public void removeFilter(Filter aFilter);
+	public List<T> filter(List<T> data, FilterCustomization customization, int maxHits);
+
+	public List<T> filter(FilterCustomization customization, List<Filter<T>> filters, int maxHits);
+
+	public List<T> filter(List<T> data, List<Filter<T>> filters, FilterCustomization customization, int maxHits);
+
+	public void addFilter(Filter<T> aFilter);
 	
-	public void addFilters(List<Filter> someFilters);
+	public void removeFilter(Filter<T> aFilter);
+	
+	public void addFilters(List<Filter<T>> someFilters);
 	
 	public void addFilterable(T f);
 	
