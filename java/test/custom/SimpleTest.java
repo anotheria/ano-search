@@ -3,8 +3,6 @@ package test.custom;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.corba.se.impl.orb.ParserTable.TestContactInfoListFactory;
-
 import net.anotheria.search.filteredsearch.Filter;
 import net.anotheria.search.filteredsearch.FilteringEngine;
 import net.anotheria.search.filteredsearch.plainengine.PlainFilteringEngineFactory;
