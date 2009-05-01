@@ -7,4 +7,10 @@ public class PlainFilteringEngineFactory{
 	public static <T extends Filterable> FilteringEngine<T> createFilteringEngine(){
 		return new PlainFilteringEngine<T>();
 	}
+	
+	/**
+	 * prevent from instantiation.
+	 */
+	private PlainFilteringEngineFactory(){}
+	
 }
