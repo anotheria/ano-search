@@ -19,7 +19,7 @@ public class PlainFilteringEngine<T extends Filterable> implements FilteringEngi
 		data = new ArrayList<T>();
 	}
 
-	public void addFilter(Filter<T> filter) {
+	@Override public void addFilter(Filter<T> filter) {
 		for (int i=0; i<filters.size(); i++){
 			if (filter.getPerformance()>filters.get(i).getPerformance()){
 				filters.add(i, filter);
@@ -29,31 +29,31 @@ public class PlainFilteringEngine<T extends Filterable> implements FilteringEngi
 		filters.add(filter);
 	}
 
-	public void addFilterable(T f) {
+	@Override public void addFilterable(T f) {
 		data.add(f);
 		
 	}
 
-	public void addFilterables(List<T> someFilterables) {
+	@Override public void addFilterables(List<T> someFilterables) {
 		data.addAll(someFilterables);
 		
 	}
 
-	public void addFilters(List<Filter<T>> someFilters) {
+	@Override public void addFilters(List<Filter<T>> someFilters) {
 		for (Filter<T> f : someFilters)
 			addFilter(f);
 		
 	}
 
-	public List<T> filter(FilterCustomization customization) {
+	@Override public List<T> filter(FilterCustomization customization) {
 		return filter(data, customization);
 	}
 
-	public List<T> filter(List<T> someData, FilterCustomization customization) {
+	@Override public List<T> filter(List<T> someData, FilterCustomization customization) {
 		return filter(someData, filters, customization);
 	}
 
-	public List<T> filter(List<T> someData, List<Filter<T>> someFilters,
+	@Override public List<T> filter(List<T> someData, List<Filter<T>> someFilters,
 			FilterCustomization customization) {
 		
 		for (Filter<T> f : someFilters){
@@ -79,31 +79,31 @@ public class PlainFilteringEngine<T extends Filterable> implements FilteringEngi
 		return ret;
 	}
 
-	public void removeFilter(Filter<T> filter) {
+	@Override public void removeFilter(Filter<T> filter) {
 		filters.remove(filter);
 		
 	}
 
-	public void removeFilterable(T f) {
+	@Override public void removeFilterable(T f) {
 		data.remove(f);
 		
 	}
 
-	public void removeFilterables(List<T> someFilterables) {
+	@Override public void removeFilterables(List<T> someFilterables) {
 		data.removeAll(someFilterables);
 		
 	}
 
-	public List<T> filter(FilterCustomization customization, int maxHits) {
+	@Override public List<T> filter(FilterCustomization customization, int maxHits) {
 		return filter(data, customization, maxHits);
 	}
 
-	public List<T> filter(List<T> data, FilterCustomization customization,
+	@Override public List<T> filter(List<T> data, FilterCustomization customization,
 			int maxHits) {
 		return filter(data, filters, customization, maxHits);
 	}
 
-	public List<T> filter(List<T> someData, List<Filter<T>> someFilters,
+	@Override public List<T> filter(List<T> someData, List<Filter<T>> someFilters,
 			FilterCustomization customization, int maxHits) {
 
 		for (Filter<T> f : someFilters){
@@ -133,11 +133,11 @@ public class PlainFilteringEngine<T extends Filterable> implements FilteringEngi
 		return ret;
 	}
 
-	public List<T> filter(FilterCustomization customization, List<Filter<T>> filters, int maxHits) {
+	@Override public List<T> filter(FilterCustomization customization, List<Filter<T>> filters, int maxHits) {
 		return filter(data, filters, customization, maxHits);
 	}
 
-	public List<T> filter(FilterCustomization customization, List<Filter<T>> filters) {
+	@Override public List<T> filter(FilterCustomization customization, List<Filter<T>> filters) {
 		return filter(data, filters, customization);
 	}
 
