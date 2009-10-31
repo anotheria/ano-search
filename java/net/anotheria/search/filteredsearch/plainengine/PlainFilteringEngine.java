@@ -11,7 +11,13 @@ import net.anotheria.search.filteredsearch.FilteringEngine;
 
 public class PlainFilteringEngine<T extends Filterable> implements FilteringEngine<T>{
 	
+	/**
+	 * Configured filters.
+	 */
 	private ArrayList<Filter<T>> filters;
+	/**
+	 * Submitted data.
+	 */
 	private ArrayList<T> data;
 	
 	PlainFilteringEngine() {
@@ -107,7 +113,7 @@ public class PlainFilteringEngine<T extends Filterable> implements FilteringEngi
 			FilterCustomization customization, int maxHits) {
 
 		for (Filter<T> f : someFilters){
-			if (f instanceof CustomizeableFilter)
+			if (f instanceof CustomizeableFilter<?>)
 				((CustomizeableFilter<T>)f).customize(customization);
 		}
 		
