@@ -3,7 +3,7 @@
   <parent>
 	<groupId>net.anotheria</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.0</version>
+	<version>1.5-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -14,13 +14,9 @@
 
   <dependencies>
   </dependencies>
-
-  
-
 	<scm>
 		<url>svn:svn://svn.anotheria.net/opensource/ano-search/trunk</url>
 		<connection>scm:svn:svn://svn.anotheria.net/opensource/ano-search/trunk</connection>
 		<developerConnection>scm:svn:svn://svn.anotheria.net/opensource/ano-search/trunk</developerConnection>
 	</scm>
-
 </project>
